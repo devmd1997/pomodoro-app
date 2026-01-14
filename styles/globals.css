@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Roboto+Slab:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-white: #ffff;
+  --color-black: #000;
+
+  --color-blue-950: #14172e;
+  --color-blue-900: #161932;
+  --color-blue-850: #1e213f;
+  --color-blue-100: #d7e0ff;
+  --color-blue-50: #eff1fa;
+
+  --color-grey-400: #bbbdcb;
+  --color-grey-200: #e4e2e2;
+
+  --color-cyan-300: #70f3f8;
+  --color-red-400: #f87070;
+  --color-purple-400: #d881f8;
+
+  /* Typography */
+
+  --text-2xl: 100px;
+  --text-xl: 80px;
+  --text-lg: 16px;
+  --text-base: 14px;
+  --text-sm: 13px;
+  --text-xs: 12px;
+
+  --text-settings: 28px;
+
+  --font-kumbh: "Kumbh Sans", sans-serif;
+  --font-roboto-slab: "Roboto Slab", serif;
+  --font-space-mono: "Space Mono", monospace;
+
+  /* Spacing */
+  --spacing: 8px;
+
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1440px;
+
+  --radius-xs: 5px;
+  --radius-sm: 10px;
+  --radius-md: 15px;
+  --radius-lg: 25px;
+}
+
+/* Text Presets (Mobile First) */
+
+@utility text-preset-1-font-1 {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-xl);
+  line-height: 125%;
+  letter-spacing: -5px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-2xl);
+  }
+}
+
+@utility text-preset-2-font-1 {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-base);
+  line-height: 120%;
+  letter-spacing: 13px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-lg);
+    line-height: 125%;
+  }
+}
+
+@utility text-preset-3-font-1 {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-xs);
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-base);
+    line-height: 120%;
+  }
+}
+
+@utility text-preset-1-font-2 {
+  font-family: var(--font-roboto-slab);
+  font-size: var(--text-xl);
+  line-height: 133%;
+  letter-spacing: 0px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-2xl);
+    line-height: 130%;
+  }
+}
+
+@utility text-preset-2-font-2 {
+  font-family: var(--font-roboto-slab);
+  font-size: var(--text-base);
+  line-height: 130%;
+  letter-spacing: 13px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-lg);
+    line-height: 125%;
+    letter-spacing: 15px;
+  }
+}
+
+@utility text-preset-3-font-2 {
+  font-family: var(--font-roboto-slab);
+  font-size: var(--text-xs);
+  line-height: 133%;
+  letter-spacing: 0px;
+  font-weight: 700;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-base);
+    line-height: 130%;
+  }
+}
+
+@utility text-preset-1-font-3 {
+  font-family: var(--font-space-mono);
+  font-size: var(--text-xl);
+  line-height: 120%;
+  letter-spacing: -10px;
+  font-weight: 400;
+  font-style: normal;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-2xl);
+    line-height: 150%;
+  }
+}
+
+@utility text-preset-2-font-3 {
+  font-family: var(--font-space-mono);
+  font-size: var(--text-base);
+  line-height: 150%;
+  letter-spacing: 13px;
+  font-weight: 700;
+  font-style: normal;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-lg);
+    line-height: 150%;
+    letter-spacing: 15px;
+  }
+}
+
+@utility text-preset-3-font-3 {
+  font-family: var(--font-space-mono);
+  font-size: var(--text-xs);
+  line-height: 150%;
+  letter-spacing: 0px;
+  font-weight: 700;
+  font-style: normal;
+
+  /* Table and Desktop */
+  @variant min-md {
+    font-size: var(--text-xs);
+    line-height: 145%;
+  }
+}
+
+@utility text-preset-1-settings {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-settings);
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+@utility text-preset-2-settings-font-1 {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-sm);
+  line-height: 145%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+@utility text-preset-2-settings-font-2 {
+  font-family: var(--font-roboto-slab);
+  font-size: var(--text-lg);
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@utility text-preset-2-settings-font-3 {
+  font-family: var(--font-space-mono);
+  font-size: var(--text-lg);
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+@utility text-preset-3-settings {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-sm);
+  line-height: 125%;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+@utility text-preset-4-settings {
+  font-family: var(--font-kumbh);
+  font-size: var(--text-xs);
+  line-height: 125%;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+/* Text Preset End */
+
+@layer base {
+  body {
+    @apply bg-blue-850;
+  }
+}
