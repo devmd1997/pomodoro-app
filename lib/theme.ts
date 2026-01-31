@@ -51,10 +51,54 @@ export const textStyle = tv({
     }
 })
 
+export const settingsButtonStyle = tv({
+    base: "absolute -bottom-6 left-[50%] -translate-1/2 w-17.5 h-[53px] bg-red-400 text-white rounded-lg",
+    variants: {
+        fontStyle: {
+            font1: 'font-kumbh text-sm tracking-[0px] leading-[145%] font-bold',
+            font2: 'font-roboto-slab text-sm tracking-[0px] leading-[125%] font-normal',
+            font3: 'font-space-mono text-sm tracking-[0px] leading-[125%] font-bold'
+        },
+        color: {
+            red: 'bg-red-400',
+            cyan: 'bg-cyan-300',
+            purple: 'bg-purple-400'
+        }
+    },
+    defaultVariants: {
+        fontStyle: 'font1',
+        color: 'red'
+    }
+})
+
+export const tabBarStyle = tv({
+    base: 'text-center w-[120px] h-[48px] lowercase text-blue-100 rounded-lg cursor-pointer',
+    variants: {
+        active: {
+            true: 'text-blue-850',
+        },
+        color: {
+            red: 'bg-red-400',
+            cyan: 'bg-cyan-300',
+            purple: 'bg-purple-400',
+        }
+    },
+    compoundVariants: [
+        {
+            color: ['cyan', 'purple', 'red'],
+            active: false,
+            class: 'text-blue-100 bg-blue-900'
+        }
+    ]
+})
+
+export type FontType = 'font1' | 'font2' | 'font3';
+export type ColorType = 'red' | 'cyan' | 'purple';
+
 export interface ThemeData {
     pomodoroTime: number;
     shortBreakTime: number;
     longBreakTime: number;
-    font: 'font1' | 'font2' | 'font3';
-    color: 'red' | 'blue' | 'purple'
+    font: FontType;
+    color: ColorType;
 }

@@ -19,6 +19,9 @@
   --color-red-400: #f87070;
   --color-purple-400: #d881f8;
 
+  --color-gradient-1: #2E325A;
+  --color-gradient-2: #0E112A;
+
   /* Typography */
 
   --text-2xl: 100px;
@@ -45,6 +48,7 @@
   --radius-sm: 10px;
   --radius-md: 15px;
   --radius-lg: 25px;
+  --radius-xl: 32px;
 }
 
 /* Text Presets (Mobile First) */
@@ -233,5 +237,199 @@
 @layer base {
   body {
     @apply bg-blue-850;
+  }
+
+  main {
+    @apply min-h-screen flex flex-col items-center justify-center w-full;
+
+    row-gap: 32px;
+  }
+
+  header {
+    @apply flex flex-col items-center justify-center w-full gap-7;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .tab-list-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    z-index: 100;
+    @apply bg-blue-900;
+    @apply rounded-xl p-1 w-fit;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+  }
+
+  .timer-container {
+    @apply flex flex-col items-center justify-center;
+    @apply bg-linear-to-br from-gradient-1 to-gradient-2;
+    @apply rounded-full p-3 w-fit;
+    @apply drop-shadow-[-50px_-50px_100px_rgba(39,44,90,1)];
+  }
+
+  .timer-content {
+    @apply size-45.75 bg-blue-900;
+    /* @apply flex flex-col items-center justify-center; */
+    @apply m-2 border-8 border-red-400 rounded-full;
+  }
+
+  .timer-inner-container {
+    @apply flex bg-blue-850 rounded-full p-2 size-45.75 relative;
+    @apply justify-center items-center cursor-pointer;
+  }
+
+  .timer-wrapper {
+    @apply relative size-45.75;
+  }
+
+  .timer-svg {
+    @apply absolute top-0 left-0 w-full h-full grow cursor-pointer;
+  }
+
+  .timer-display {
+    @apply flex flex-col gap-1 items-center justify-center text-center w-full cursor-pointer;
+  }
+
+  .settings-content {
+    @apply flex flex-col gap-4 pb-2;
+  }
+
+  .settings-layout {
+    @apply flex flex-col gap-3;
+  }
+
+  .settings-header {
+    @apply flex flex-row justify-between mx-3;
+  }
+
+  .settings-header + .settings-form::before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-blue-900);
+  }
+
+  .settings-header h1 {
+    @apply text-preset-1-settings text-blue-850 w-fit;
+  }
+
+  .time-settings-set {
+    @apply grid max-md:grid-rows-2 md:grid-cols-3 gap-2 md:gap-3;
+  }
+
+  .time-wrapper {
+    @apply flex flex-row max-md:justify-between max-md:items-center md:flex-col w-full;
+    gap: 8px;
+  }
+
+  .time-wrapper input {
+    @apply w-17.5 h-5 md:w-full p-1 bg-blue-50 text-preset-3-settings text-blue-850 rounded-sm; 
+  }
+
+  .time-wrapper label {
+    @apply text-preset-4-settings text-blue-850/40;
+  }
+
+  .settings-form {
+    @apply flex flex-col p-3;
+  }
+  .settings-form legend {
+    @apply text-preset-3-settings uppercase text-blue-850 max-md:text-center;
+  }
+
+  .settings-form section:not(:last-of-type)::after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-grey-200);
+    margin-block: 24px;
+  }
+
+  .time-field {
+    @apply flex flex-col gap-2;
+  }
+
+  .font-form {
+    @apply flex flex-col gap-3;
+  }
+  .font-form-content {
+    @apply flex flex-col justify-center max-md:gap-2 md:flex-row md:justify-between items-center md:w-full;
+  }
+
+  .font-fieldset {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+  
+  .font-input {
+    @apply size-5 rounded-full bg-blue-50 text-blue-850 text-center p-1 cursor-pointer;
+    @apply border-4 outline-1 outline-blue-50 border-blue-50 hover:border-white;
+  }
+
+  .font-input[data-selected="true"] {
+    background-color: var(--color-blue-900) !important;
+    color: var(--color-blue-50) !important;
+    border-color: var(--color-blue-900) !important;
+    outline-color: var(--color-blue-900) !important;
+  }
+
+  .font-input[data-fonttype="font1"] {
+    @apply text-preset-2-settings-font-1;
+  }
+
+  .font-input[data-fonttype="font2"] {
+    @apply text-preset-2-settings-font-2;
+  }
+
+  .font-input[data-fonttype="font3"] {
+    @apply text-preset-2-settings-font-3;
+  }
+
+  .color-field {
+    @apply flex flex-col gap-2;
+  }
+
+  .color-form-content {
+    @apply flex flex-col justify-center max-md:pb-4 max-md:gap-2 md:flex-row md:justify-between items-center md:w-full;
+  }
+
+  .color-fieldset {
+    @apply flex flex-row gap-2 items-center justify-center;
+  }
+
+  .color-input {
+    @apply size-5 rounded-full p-1 cursor-pointer;
+    @apply border-4 outline-1 border-transparent outline-transparent;
+  }
+
+  .color-input:hover:not(.color-input[data-selected="true"]) {
+    @apply border-white outline-blue-50;
+  }
+
+  .color-input[data-colortype="red"] {
+    @apply bg-red-400;
+  }
+
+  .color-input[data-colortype="cyan"] {
+    @apply bg-cyan-300;
+  }
+
+  .color-input[data-colortype="purple"] {
+    @apply bg-purple-400;
   }
 }
